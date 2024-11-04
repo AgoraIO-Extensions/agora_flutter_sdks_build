@@ -16,7 +16,7 @@ dependencies:
   shared_versions: ^2.0.0
   mustache_template: ^2.0.0
   http: ^0.13.4
-  dio: ^4.0.6
+  dio: ">=4.0.6 <6.0.0"
   archive: ^3.3.0
 
 dev_dependencies:
