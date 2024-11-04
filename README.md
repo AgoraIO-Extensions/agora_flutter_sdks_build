@@ -5,6 +5,7 @@ The project is under the MIT license.
 
 ## Secrets
 
+```
 ACTION_PAT: GitHub token，用于提PR
 AGORALAB2020_KEYCHAIN_PASSWORD:
 AGORALAB2020_P12_BASE64: base64 -i <AGORALAB2020_file_path>.p12 | pbcopy
@@ -28,6 +29,7 @@ TEAM_TEST: 5459N9W32M
 TEST_APP_ID:
 TEST_RTM_APP_ID:
 TEST_RTM_TOKEN: 同TEST_RTM_APP_ID
+```
 
 ## 更新证书步骤：
 
