@@ -144,13 +144,6 @@ jobs:
           ref: ${{ inputs.build_branch }}
           path: ${{ inputs.repository }}
 
-      - name: Install bitbucket SSH key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.BITBUCKET_SSH_KEY }}
-          name: id_rsa # optional
-          known_hosts: ${{ secrets.BITBUCKET_SSH_KNOWN_HOSTS }}
-          if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
       - name: Clone iris
         run: |
           IRIS_BRANCH=${{ inputs.iris-branch }}
@@ -252,14 +245,6 @@ jobs:
           repository: ${{ inputs.repository }}
           ref: ${{ inputs.build_branch }}
           path: ${{ inputs.repository }}
-
-      - name: Install bitbucket SSH key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.BITBUCKET_SSH_KEY }}
-          name: id_rsa # optional
-          known_hosts: ${{ secrets.BITBUCKET_SSH_KNOWN_HOSTS }}
-          if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
 
       - name: Clone iris
         run: |
