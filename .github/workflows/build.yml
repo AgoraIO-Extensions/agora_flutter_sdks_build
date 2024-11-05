@@ -305,7 +305,7 @@ jobs:
           OUTPUT_ARTIFACT_FILE_NAME=$(ls output | head -n 1)
 
           GITHUB_RUN_ID=${{ github.run_id }} 
-          GITHUB_RELEASE_DOWNLOAD_PREFIX=https://nightly.link/littleGnAl/hoe/actions/runs
+          GITHUB_RELEASE_DOWNLOAD_PREFIX=https://nightly.link/AgoraIO-Extensions/agora_flutter_sdks_build/actions/runs
           GITHUB_RELEASE_DOWNLOAD_URL="${GITHUB_RELEASE_DOWNLOAD_PREFIX}/${GITHUB_RUN_ID}/${OUTPUT_ARTIFACT_FILE_NAME}"
           echo "GITHUB_RELEASE_DOWNLOAD_URL=${GITHUB_RELEASE_DOWNLOAD_URL}" >> $GITHUB_ENV
           echo "OUTPUT_ARTIFACT_FILE_NAME=${OUTPUT_ARTIFACT_FILE_NAME}" >> $GITHUB_ENV
@@ -393,7 +393,7 @@ jobs:
           OUTPUT_ARTIFACT_FILE_NAME=$(ls output | head -n 1)
 
           GITHUB_RUN_ID=${{ github.run_id }} 
-          GITHUB_RELEASE_DOWNLOAD_PREFIX=https://nightly.link/littleGnAl/hoe/actions/runs
+          GITHUB_RELEASE_DOWNLOAD_PREFIX=https://nightly.link/AgoraIO-Extensions/agora_flutter_sdks_build/actions/runs
           GITHUB_RELEASE_DOWNLOAD_URL="${GITHUB_RELEASE_DOWNLOAD_PREFIX}/${GITHUB_RUN_ID}/${OUTPUT_ARTIFACT_FILE_NAME}"
           echo "GITHUB_RELEASE_DOWNLOAD_URL=${GITHUB_RELEASE_DOWNLOAD_URL}" >> $GITHUB_ENV
           echo "OUTPUT_ARTIFACT_FILE_NAME=${OUTPUT_ARTIFACT_FILE_NAME}" >> $GITHUB_ENV
@@ -495,7 +495,7 @@ jobs:
           OUTPUT_ARTIFACT_FILE_NAME=$(ls output | head -n 1)
 
           GITHUB_RUN_ID=${{ github.run_id }} 
-          GITHUB_RELEASE_DOWNLOAD_PREFIX=https://nightly.link/littleGnAl/hoe/actions/runs
+          GITHUB_RELEASE_DOWNLOAD_PREFIX=https://nightly.link/AgoraIO-Extensions/agora_flutter_sdks_build/actions/runs
           GITHUB_RELEASE_DOWNLOAD_URL="${GITHUB_RELEASE_DOWNLOAD_PREFIX}/${GITHUB_RUN_ID}/${OUTPUT_ARTIFACT_FILE_NAME}"
           echo "GITHUB_RELEASE_DOWNLOAD_URL=${GITHUB_RELEASE_DOWNLOAD_URL}" >> $GITHUB_ENV
           echo "OUTPUT_ARTIFACT_FILE_NAME=${OUTPUT_ARTIFACT_FILE_NAME}" >> $GITHUB_ENV
@@ -572,7 +572,7 @@ jobs:
           OUTPUT_ARTIFACT_FILE_NAME=$(ls output | head -n 1)
 
           GITHUB_RUN_ID=${{ github.run_id }} 
-          GITHUB_RELEASE_DOWNLOAD_PREFIX=https://nightly.link/littleGnAl/hoe/actions/runs
+          GITHUB_RELEASE_DOWNLOAD_PREFIX=https://nightly.link/AgoraIO-Extensions/agora_flutter_sdks_build/actions/runs
           GITHUB_RELEASE_DOWNLOAD_URL="${GITHUB_RELEASE_DOWNLOAD_PREFIX}/${GITHUB_RUN_ID}/${OUTPUT_ARTIFACT_FILE_NAME}"
           echo "GITHUB_RELEASE_DOWNLOAD_URL=${GITHUB_RELEASE_DOWNLOAD_URL}" >> $GITHUB_ENV
           echo "OUTPUT_ARTIFACT_FILE_NAME=${OUTPUT_ARTIFACT_FILE_NAME}" >> $GITHUB_ENV
