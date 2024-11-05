@@ -18,8 +18,8 @@ jobs:
             const date = new Date()
             var dateString = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
 
-            const owner = "littleGnAl"
-            const repo = "hoe"
+            const owner = "AgoraIO-Extensions"
+            const repo = "agora_flutter_sdks_build"
             const workflow_id = "update_doc.yml"
             const ref = 'main'
 

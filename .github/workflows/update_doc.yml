@@ -71,7 +71,7 @@ jobs:
       - name: Check out iris_doc
         uses: actions/checkout@v3
         with:
-          repository: littleGnAl/iris-doc
+          repository: AgoraIO-Extensions/iris_doc
           ref: ${{ inputs.iris-doc-ref }}
           path: iris-doc
 

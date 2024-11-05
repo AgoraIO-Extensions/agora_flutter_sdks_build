@@ -57,7 +57,7 @@ jobs:
             --project-dir=${PROJECT_DIR} \
             --native-dependencies-content="${NATIVE_DEPENDENCIES_CONTENT}"
 
-      - uses: littleGnAl/hoe/.github/actions/code_gen@main
+      - uses: AgoraIO-Extensions/agora_flutter_sdks_build/.github/actions/code_gen@main
         if: ${{ inputs.run_codegen }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

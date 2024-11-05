@@ -79,8 +79,8 @@ jobs:
                 labels: ['ci:building_example']
               })
 
-              const owner = "littleGnAl"
-              const repo = "hoe"
+              const owner = "AgoraIO-Extensions"
+              const repo = "agora_flutter_sdks_build"
               const workflow_id = "build_and_post_result_to_pr.yml"
               const ref = 'main'
 

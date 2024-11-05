@@ -86,7 +86,7 @@ jobs:
             --pubspec-version=${PUBSPEC_VERSION} \
             --native-dependencies-content="${NATIVE_DEPENDENCIES_CONTENT}"
 
-      - uses: littleGnAl/hoe/.github/actions/code_gen@main
+      - uses: AgoraIO-Extensions/agora_flutter_sdks_build/.github/actions/code_gen@main
         if: ${{ inputs.run_codegen }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -103,7 +103,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          branch: littlegnal/special/native-${{ inputs.native_sdk_version }}
+          branch: dev/special/native-${{ inputs.native_sdk_version }}
           base: special/native-${{ inputs.native_sdk_version }}
           delete-branch: true
           draft: false
