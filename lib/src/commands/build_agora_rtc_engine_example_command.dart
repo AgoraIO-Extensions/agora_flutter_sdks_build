@@ -265,15 +265,17 @@ class BuildAgoraRtcEngineExampleCommand extends BaseCommand {
       final unzipFilePath =
           getUnzipDir(fileSystem, irisIOSCDNUrl, zipDownloadPath, 'DCG', 'iOS');
 
-      fileSystem
-          .directory(path.join(
-            unzipFilePath,
-            'DCG',
-            'Agora_Native_SDK_for_iOS_FULL',
-            'libs',
-            'ALL_ARCHITECTURE',
-          ))
-          .deleteSync(recursive: true);
+      final sdkAllArchitecturePath = path.join(
+        unzipFilePath,
+        'DCG',
+        'Agora_Native_SDK_for_iOS_FULL',
+        'libs',
+        'ALL_ARCHITECTURE',
+      );
+
+      if (fileSystem.directory(sdkAllArchitecturePath).existsSync()) {
+        fileSystem.directory(sdkAllArchitecturePath).deleteSync(recursive: true);
+      }
 
       processManager.runSyncWithOutput([
         'cp',
