@@ -218,7 +218,7 @@ jobs:
 
           echo "output_android_artifactory_download_url=${GITHUB_RELEASE_DOWNLOAD_URL}" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ env.OUTPUT_ARTIFACT_FILE_NAME }}
           path: "output/*.zip"
@@ -312,7 +312,7 @@ jobs:
 
           echo "output_macos_artifactory_download_url=${GITHUB_RELEASE_DOWNLOAD_URL}" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ env.OUTPUT_ARTIFACT_FILE_NAME }}
           path: "output/*.zip"
@@ -400,7 +400,7 @@ jobs:
 
           echo "output_windows_artifactory_download_url=${GITHUB_RELEASE_DOWNLOAD_URL}" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ env.OUTPUT_ARTIFACT_FILE_NAME }}
           path: "output/*.zip"
@@ -502,7 +502,7 @@ jobs:
 
           echo "output_ios_artifactory_download_url=${GITHUB_RELEASE_DOWNLOAD_URL}" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ env.OUTPUT_ARTIFACT_FILE_NAME }}
           path: "output/*.zip"
@@ -579,7 +579,7 @@ jobs:
 
           echo "output_web_artifactory_download_url=${GITHUB_RELEASE_DOWNLOAD_URL}" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ env.OUTPUT_ARTIFACT_FILE_NAME }}
           path: "output/*.zip"
