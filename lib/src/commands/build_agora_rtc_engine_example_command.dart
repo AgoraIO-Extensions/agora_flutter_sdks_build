@@ -7,7 +7,6 @@ import 'package:hoe/src/base/base_command.dart';
 import 'package:hoe/src/base/process_manager_ext.dart';
 import 'package:hoe/src/common/default_file_downloader.dart';
 import 'package:hoe/src/common/global_config.dart';
-import 'package:hoe/src/common/ios_plist_config.dart';
 import 'package:hoe/src/common/path_ext.dart';
 import 'package:hoe/src/common/pubspec.dart';
 import 'package:path/path.dart' as path;
@@ -594,7 +593,7 @@ class BuildAgoraRtcEngineExampleCommand extends BaseCommand {
     return file;
   }
 
-  /// bash $MY_PATH/build-internal-testing-ios.sh agora_rtc_engine_example io.agora.agoraRtcEngineExampleTest io.agora.agoraRtcEngineExampleLab io.agora.agoraRtcEngineExampleQA io.agora.agoraRtcEngineExample
+  /// bash $MY_PATH/build-internal-testing-ios.sh agora_rtc_engine_example io.agora.agoraRtcEngineExample
   Future<void> _processBuildIOS(
       String applePackageName,
       String flutterPackageName,
@@ -618,113 +617,18 @@ class BuildAgoraRtcEngineExampleCommand extends BaseCommand {
 
     processManager.runSyncWithOutput(['pod', 'repo', 'update']);
 
-    _installAppleCertificate(
-        p12OutputPath: path.join(
-          _globalConfig.githubActionRunnerTemp,
-          'agoratest2020.p12',
-        ),
-        provisionOutputPath: path.join(
-          _globalConfig.githubActionRunnerTemp,
-          'agoratest2020_pp.mobileprovision',
-        ),
-        keychainOutputPath: path.join(
-          _globalConfig.githubActionRunnerTemp,
-          'agoratest2020-app-signing.keychain-db',
-        ),
-        gpgProvisionName: 'AgoraTest2020.mobileprovision.gpg',
-        gpgProvisionPwd: _globalConfig.agoratest2020PPGpgPwd,
-        p12Base64: _globalConfig.agoratest2020P12Base64,
-        p12Pwd: _globalConfig.agoratest2020P12Pwd,
-        keychainPwd: _globalConfig.agoratest2020KeychainPassword);
-
-    final pListConfigTest =
-        PListConfig('${applePackageName}Test', 'AgoraTest2020');
     _buildIOSIpa(
         examplePath,
         flutterPackageName,
         path.join(examplePath, 'ios', 'Runner.xcodeproj'),
-        pListConfigTest.applePackageName,
-        _globalConfig.appleTeamIdTest,
-        pListConfigTest.profileName,
-        _globalConfig.appleCodeSignIdentityTest,
+        applePackageName,
+        _globalConfig.appleTeamId,
+        _globalConfig.appleProvisionProfileName,
+        _globalConfig.appleCodeSignIdentity,
         false,
-        pListConfigTest,
         {
-          'Runner': '${applePackageName}Test',
-          'ScreenSharing': '${applePackageName}Test.ScreenSharing',
-        },
-        archiveDirPath);
-
-    _installAppleCertificate(
-        p12OutputPath: path.join(
-          _globalConfig.githubActionRunnerTemp,
-          'agoralab2020.p12',
-        ),
-        provisionOutputPath: path.join(
-          _globalConfig.githubActionRunnerTemp,
-          'agoralab2020_pp.mobileprovision',
-        ),
-        keychainOutputPath: path.join(
-          _globalConfig.githubActionRunnerTemp,
-          'agoralab2020-app-signing.keychain-db',
-        ),
-        gpgProvisionName: 'AgoraLab2020.mobileprovision.gpg',
-        gpgProvisionPwd: _globalConfig.agoralab2020PPGpgPwd,
-        p12Base64: _globalConfig.agoralab2020P12Base64,
-        p12Pwd: _globalConfig.agoralab2020P12Pwd,
-        keychainPwd: _globalConfig.agoralab2020KeychainPassword);
-
-    final pListConfigLab =
-        PListConfig('${applePackageName}Lab', 'AgoraLab2020');
-    _buildIOSIpa(
-        examplePath,
-        flutterPackageName,
-        path.join(examplePath, 'ios', 'Runner.xcodeproj'),
-        pListConfigLab.applePackageName,
-        _globalConfig.appleTeamIdLab,
-        pListConfigLab.profileName,
-        _globalConfig.appleCodeSignIdentityLab,
-        false,
-        pListConfigLab,
-        {
-          'Runner': '${applePackageName}Lab',
-          'ScreenSharing': '${applePackageName}Lab.ScreenSharing',
-        },
-        archiveDirPath);
-
-    _installAppleCertificate(
-        p12OutputPath: path.join(
-          _globalConfig.githubActionRunnerTemp,
-          'agoraqa2021.p12',
-        ),
-        provisionOutputPath: path.join(
-          _globalConfig.githubActionRunnerTemp,
-          'agoraqa2021_pp.mobileprovision',
-        ),
-        keychainOutputPath: path.join(
-          _globalConfig.githubActionRunnerTemp,
-          'agoraqa2021-app-signing.keychain-db',
-        ),
-        gpgProvisionName: 'AgoraQA2021.mobileprovision.gpg',
-        gpgProvisionPwd: _globalConfig.agoraqa2021PPGpgPwd,
-        p12Base64: _globalConfig.agoraqa2021P12Base64,
-        p12Pwd: _globalConfig.agoraqa2021P12Pwd,
-        keychainPwd: _globalConfig.agoraqa2021KeychainPassword);
-
-    final pListConfigQA = PListConfig('${applePackageName}QA', 'AgoraQA2021');
-    _buildIOSIpa(
-        examplePath,
-        flutterPackageName,
-        path.join(examplePath, 'ios', 'Runner.xcodeproj'),
-        pListConfigQA.applePackageName,
-        _globalConfig.appleTeamIdQa,
-        pListConfigQA.profileName,
-        _globalConfig.appleCodeSignIdentityQa,
-        false,
-        pListConfigQA,
-        {
-          'Runner': '${applePackageName}QA',
-          'ScreenSharing': '${applePackageName}QA.ScreenSharing',
+          'Runner': '${applePackageName}',
+          'ScreenSharing': '${applePackageName}.ScreenSharing',
         },
         archiveDirPath);
 
@@ -1003,14 +907,13 @@ class BuildAgoraRtcEngineExampleCommand extends BaseCommand {
     String profileName,
     String codeSignIdentity,
     bool automaticSigning,
-    PListConfig pListConfig,
     Map<String, String> targetsRunners,
     String outputPath,
   ) {
     final plistFile = _createPList(
-      pListConfig.applePackageName,
-      pListConfig.profileName,
-      path.join(workingDirectory, '${pListConfig.profileName}.plist'),
+      bundleIdentifier,
+      profileName,
+      path.join(workingDirectory, '${profileName}.plist'),
     );
 
     stdout.writeln(plistFile.absolute.path);
@@ -1029,7 +932,7 @@ class BuildAgoraRtcEngineExampleCommand extends BaseCommand {
     _flutterBuild(
       workingDirectory,
       'ipa',
-      extraArgs: ['--export-options-plist', plistFile.absolute.path],
+      extraArgs: ['--export-options-plist', plistFile.absolute.path, '--verbose', '--debug'],
     );
 
     final iosArtifactPath = path.join(workingDirectory, 'build', 'ios', 'ipa');
@@ -1091,46 +994,6 @@ class BuildAgoraRtcEngineExampleCommand extends BaseCommand {
         workingDirectory: workingDirectory,
       );
     }
-  }
-
-  void _installAppleCertificate({
-    required String p12OutputPath,
-    required String provisionOutputPath,
-    required String keychainOutputPath,
-    required String gpgProvisionName,
-    required String gpgProvisionPwd,
-    required String p12Base64,
-    required String p12Pwd,
-    required String keychainPwd,
-  }) {
-    final libPath = path.join(
-        fileSystem
-            .file(Platform.script.toFilePath(windows: Platform.isWindows))
-            .parent
-            .parent
-            .absolute
-            .path,
-        'lib');
-    final certPath = path.join(libPath, 'cert');
-
-    processManager.runSyncWithOutput([
-      'bash',
-      path.join(certPath, 'decrypt_secret.sh'),
-      provisionOutputPath,
-      path.join(certPath, gpgProvisionName),
-      gpgProvisionPwd
-    ]);
-
-    processManager.runSyncWithOutput([
-      'bash',
-      path.join(certPath, 'install_apple_certificate.sh'),
-      p12Base64,
-      p12Pwd,
-      p12OutputPath,
-      provisionOutputPath,
-      keychainOutputPath,
-      keychainPwd,
-    ]);
   }
 
   Future<void> _processBuildWeb(
