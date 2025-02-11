@@ -932,7 +932,7 @@ class BuildAgoraRtcEngineExampleCommand extends BaseCommand {
     _flutterBuild(
       workingDirectory,
       'ipa',
-      extraArgs: ['--export-options-plist', plistFile.absolute.path, '--verbose', '--debug'],
+      extraArgs: ['--export-options-plist', plistFile.absolute.path],
     );
 
     final iosArtifactPath = path.join(workingDirectory, 'build', 'ios', 'ipa');
